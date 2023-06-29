@@ -3,10 +3,12 @@ export default function TextForm(props) {
   const handleUpClick = ()=>{
     let newtext = text.toUpperCase();
     setText(newtext);
+    props.showAlert("converted to uppercase!!","success")
   }
   const handleLoClick = ()=>{
     let newtext = text.toLowerCase();
     setText(newtext);
+    props.showAlert("converted to lowercase!!","success")
   }
   const handleOnChange = (event)=>{
     setText(event.target.value);
@@ -19,8 +21,8 @@ export default function TextForm(props) {
         <div className="mb-3">
             <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white',color:props.mode==='dark'?'white':'black'}} id="myBox" rows="5"></textarea>
         </div>
-        <button className="btn btn-priamry mx-2" onClick={handleUpClick}>convert to uppercase</button>
-        <button className="btn btn-priamry" onClick={handleLoClick}>convert to lowercase</button>
+        <button type="button" className="btn btn-primary mx-2" onClick={handleUpClick}>convert to uppercase</button>
+        <button type="button" className="btn btn-primary" onClick={handleLoClick}>convert to lowercase</button>
     </div>
     <div className="container my-4" style={{color:props.mode==='dark'?'white':'black'}}>
       <h2>your summary</h2>
